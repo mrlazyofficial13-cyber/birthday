@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+text-align:center;
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,0.2);
+width:320px;
+}
+
+button{
+margin-top:20px;
+padding:12px 20px;
+background:#ff6b81;
+border:none;
+color:white;
+border-radius:10px;
+}
+
+#surprise{
+display:none;
+margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>🎉 Happy Birthday Akansha 🎂</h1>
+
+<p>
+Aaj ka din special hai, wajah tum ho,<br>
+Smile thodi zyada aaj isliye ho.
+</p>
+
+<button onclick="showSurprise()">Make a Wish 🎁</button>
+
+<div id="surprise">
+
+<video width="260" controls>
+<source src="YOUR_VIDEO_LINK.mp4">
+</video>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+
+function showSurprise(){
+document.getElementById("surprise").style.display="block";
+
+confetti({
+particleCount:120,
+spread:80
+});
+}
+
+</script>
+
+</body>
+</html>
