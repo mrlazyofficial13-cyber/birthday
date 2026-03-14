@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Birthday Program</title>
+
+<meta charset="UTF-8">
+<title>BirthdayProgram.exe</title>
 
 <style>
 
 body{
 background:#0f172a;
-color:#00ff9c;
+color:#22c55e;
 font-family:monospace;
 text-align:center;
+margin:0;
 padding:40px;
 }
 
 .terminal{
 background:#020617;
-padding:20px;
-border-radius:10px;
-width:350px;
+padding:25px;
+border-radius:12px;
+max-width:420px;
 margin:auto;
-box-shadow:0 0 20px #00ff9c33;
+box-shadow:0 0 20px #22c55e44;
+}
+
+h2{
+color:#38bdf8;
+}
+
+.gallery{
+margin-top:20px;
 }
 
 .gallery img{
@@ -30,14 +41,15 @@ border-radius:10px;
 
 button{
 margin-top:20px;
-padding:10px 20px;
-background:#00ff9c;
+padding:12px 20px;
+background:#22c55e;
 border:none;
-border-radius:6px;
+border-radius:8px;
 cursor:pointer;
+font-weight:bold;
 }
 
-#video{
+#videoBox{
 display:none;
 margin-top:20px;
 }
@@ -52,52 +64,81 @@ margin-top:20px;
 
 <h2>BirthdayProgram.exe</h2>
 
-<p id="text"></p>
-
-<button onclick="showVideo()">Run Surprise()</button>
+<p id="typing"></p>
 
 <div class="gallery">
 
-<img src="PHOTO1">
-<img src="PHOTO2">
+<img src="PHOTO1_LINK">
+<img src="PHOTO2_LINK">
+<img src="PHOTO3_LINK">
 
 </div>
 
-<div id="video">
+<button onclick="runSurprise()">Run Surprise()</button>
 
-<video width="300" controls>
-<source src="VIDEO_LINK">
+<div id="videoBox">
+
+<h3>Executing Surprise...</h3>
+
+<video width="320" controls>
+<source src="VIDEO_LINK" type="video/mp4">
 </video>
 
 </div>
 
 </div>
 
+<audio autoplay loop>
+<source src="SONG_LINK">
+</audio>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
 <script>
 
 let message = `
-Initializing birthday protocol...
-Loading happiness modules...
-Target: Akansha
-Status: Very Special Person
+> Initializing birthday protocol...
+> Loading happiness modules...
+> Detecting user...
 
-print("Happy Birthday 🎂")
+User Found: Akansha
+Role: CS Student
+
+Compiling wishes...
+
+Output:
+Happy Birthday 🎂
+Have an amazing year ahead 🙂
 `;
 
-let i=0;
+let i = 0;
 
 function typing(){
-if(i<message.length){
-document.getElementById("text").innerHTML += message.charAt(i);
+
+if(i < message.length){
+
+document.getElementById("typing").innerHTML += message.charAt(i);
+
 i++;
+
 setTimeout(typing,40);
+
 }
+
 }
 
 typing();
 
-function showVideo(){
-document.getElementById("video").style.display="block";
+function runSurprise(){
+
+document.getElementById("videoBox").style.display="block";
+
+confetti({
+particleCount:150,
+spread:90,
+origin:{y:0.6}
+});
+
 }
 
 </script>
